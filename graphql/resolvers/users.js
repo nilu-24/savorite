@@ -1,29 +1,66 @@
 
 const User = require("../../models/User.js");
-
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const { UserInputError } = require("apollo-server");
-
 const {SECRET} = require("../../keys.js");
+
+const { validateRegisterInput, validateLoginInput } = require("../../utils/validation.js");
+
 
 
 module.exports = {
 
     Mutation: {
+
+        async login(parent, {userName, password}){
+
+            const {err, valid} = validateLoginInput(userName,password);
+            const user = await User.findOne({userName});
+
+            if (!user){
+                err.standard = "User Doesn't Exist.";
+                throw new UserInputError("User Doesn't Exist.",{err});
+            }
+
+            const match = await bcrypt.compare(password,user.password);
+
+            if(!match){
+                err.standard = "Login Failed. Enter Correct Credentials."
+                throw new UserInputError("Login Failed. Enter Correct Credentials.",{err});
+            }
+
+            const token = jwt.sign({
+                _id: user._id,
+                email: user.email,
+                userName: user.userName,
+
+            },SECRET, {expiresIn: '1h'});
+
+            return {
+                ...user._doc,
+                _id: user._id,
+                token
+            }
+        },
+
        async register(parent, {registerInput:
             { email, userName, password, confirmPassword } 
         }, context, info){
 
 
             //  Validate the data
-            //check if the user already exists
 
+            const {valid, err} = validateRegisterInput(userName,email,password,confirmPassword);
+             if(!valid){
+                throw new UserInputError('Errors',{err})
+                }
             //fetching the user
             const user = await User.findOne({userName});
 
             if(user){
+                //check if the user already exists
                 throw new UserInputError("Username Already Exists!", {
                     errors:{
                         userName: "Username Already Exists."
