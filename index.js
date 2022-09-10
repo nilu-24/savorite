@@ -12,7 +12,10 @@ const typeDefs = require("./graphql/typeDefs.js");
 
 const server = new ApolloServer({
 typeDefs,
-resolvers
+resolvers,
+context: ({req})=>{
+    return ({req});
+}
 });
 
 

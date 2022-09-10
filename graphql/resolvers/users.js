@@ -1,4 +1,6 @@
 
+//Users Resolvers
+
 const User = require("../../models/User.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -9,11 +11,11 @@ const {SECRET} = require("../../keys.js");
 const { validateRegisterInput, validateLoginInput } = require("../../utils/validation.js");
 
 
-
 module.exports = {
 
     Mutation: {
 
+        //login functionality
         async login(parent, {userName, password}){
 
             const {err, valid} = validateLoginInput(userName,password);
