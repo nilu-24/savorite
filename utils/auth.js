@@ -18,7 +18,6 @@ module.exports = (context) =>{
                 throw new AuthenticationError("Token Expired/Invalid.");
             }
         }
-
         else{
             throw new Error("Authentication Token Must Be Bearer [token].");
         }

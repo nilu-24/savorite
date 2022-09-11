@@ -1,9 +1,28 @@
 
-
 const { gql } = require('apollo-server');
 
 
 const typeDefs = gql `
+
+type Comment{
+    _id: ID!
+    body: String!
+    userName: String!
+    createdAt: String!
+}
+
+type Like{
+    _id: ID!
+    userName: String!
+    createdAt: String!
+}
+
+type Dislike{
+    _id: ID!
+    userName: String!
+    createdAt: String!
+}
+
 
 type Post{
 
@@ -16,6 +35,12 @@ type Post{
     body: String!
     createdAt: String!
     userName: String!
+    comments: [Comment]!
+    likes: [Like]!
+    dislikes: [Dislike]!    
+    likeCount: Int!
+    dislikeCount: Int!
+    commentCount: Int!
 }
 
 type Query{
@@ -44,6 +69,10 @@ type Mutation{
     login(userName:String!, password:String!):User!
     createPost(title: String!, body:String!, image:String, tags:[String], restaurant:String!, location:String ): Post!
     deletePost(postId: ID!): String!
+    createComment( postId: String!, body: String! ): Post!
+    deleteComment( postId: ID!, commentId: ID! ): Post!
+    likePost( postId:ID! ): Post!
+    dislikePost( postId:ID! ): Post!
 }
 
 `;
