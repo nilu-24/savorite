@@ -74,7 +74,14 @@ module.exports = {
                 //so we need to unlike it
                 post.likes = post.likes.filter(like => like.userName != user.userName);
                }
+
                else{
+
+                //if the post was disliked before, we need to revert it back
+            if(post.dislikes.find(dislike=>dislike.userName==user.userName)){
+                //if the user has already disliked the post
+                post.dislikes = post.dislikes.filter(dislike=>dislike.userName != user.userName);
+               }
                 //post was not liked so now we can like it
                 post.likes.push({
                     userName: user.userName,
@@ -98,8 +105,14 @@ module.exports = {
              //so we need to unlike it
              post.dislikes= post.dislikes.filter(dislike => dislike.userName != user.userName);
             }
+
             else{
-             //post was not liked so now we can like it
+             //post was not disliked so now we can dislike it
+             //if the post was liked, we need to unlike it.
+             if(post.likes.find(like=>like.userName==user.userName)){
+                //if the user has already liked the post
+                post.likes = post.likes.filter(like=>like.userName != user.userName);
+               }
              post.dislikes.push({
                  userName: user.userName,
                  createdAt: new Date().toISOString()
