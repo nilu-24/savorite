@@ -64,7 +64,7 @@ module.exports = {
             if(user){
                 //check if the user already exists
                 throw new UserInputError("Username Already Exists!", {
-                    errors:{
+                    err:{
                         userName: "Username Already Exists."
                     }
                 });
