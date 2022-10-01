@@ -24,15 +24,19 @@ const navBar = user? (<Box sx={{ flexGrow: 1, marginBottom: '100px' }}>
       edge="start"
       color="inherit"
       aria-label="menu"
-      sx={{ mr: 2 }}
     >
       <RestaurantIcon />
     </IconButton>
     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-    <Link sx={{color:"white", textDecoration:"none"}} href="/">Savorite</Link>
+    <Link sx={{color:"white", textDecoration:"none", fontFamily:"Pacifico", fontSize:"25px"}} href="/">Savorite.</Link>
     </Typography>
    
-    <Button color="inherit"> <IconButton color="inherit">
+    <Button sx={{
+                 '&:hover': {
+        backgroundColor: 'black',
+    },
+    
+    }} color="inherit"> <IconButton color="inherit">
       <LogoutIcon></LogoutIcon>
     </IconButton><Link sx={{color:"white", textDecoration:"none"}} onClick={logout}>Logout</Link></Button>
   </Toolbar>
@@ -46,16 +50,37 @@ const navBar = user? (<Box sx={{ flexGrow: 1, marginBottom: '100px' }}>
       edge="start"
       color="inherit"
       aria-label="menu"
-      sx={{ mr: 2 }}
     >
       <RestaurantIcon />
     </IconButton>
     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-    <Link sx={{color:"white", textDecoration:"none"}} href="/">Savorite</Link>
+    <Link sx={{color:"white", textDecoration:"none", fontFamily:"Pacifico", fontSize:"25px"}} href="/">Savorite.</Link>
     </Typography>
-    <Button color="inherit"><Link sx={{color:"white", textDecoration:"none"}} href="/login">Login</Link></Button>
-    <Button color="inherit"><Link sx={{color:"white", textDecoration:"none"}} href="/register">Register</Link></Button>
+
+    <Button sx={{
+
+      marginRight:"5px",
+
+'&:hover': {
+        backgroundColor: 'black',
+    },
+    
+
+    }}  color="inherit"><Link sx={{color:"white", textDecoration:"none"}} href="/login">Login</Link></Button>
+    <Button sx={{
+
+'&:hover': {
+        backgroundColor: 'black',
+    },
+    
+    }}
+    
+    color="inherit"><Link sx={{color:"white", textDecoration:"none"}} href="/register">Register</Link></Button>
   </Toolbar>
+
+
+
+
 </AppBar>
 </Box>
 )

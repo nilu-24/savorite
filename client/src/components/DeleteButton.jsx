@@ -70,7 +70,7 @@ export default function DeleteButton(props){
     })
 
     return (<>
-        <IconButton onClick={handleClickOpen} sx={{marginLeft:"auto", color:"#eb282e"}} aria-label="delete">
+        <IconButton onClick={handleClickOpen} sx={{marginLeft:"auto", color:"#ff003b"}} aria-label="delete">
           <DeleteIcon />
         </IconButton>
         <Dialog

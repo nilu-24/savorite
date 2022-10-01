@@ -11,8 +11,10 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import plate from "../components/plate.png";
 
 import Form from "../components/Form";
+import hi from "../components/hi.gif";
 
 export default function Home(){
   document.body.style.backgroundImage = "";
@@ -28,30 +30,69 @@ export default function Home(){
      
     }
 
-
     const [query, setQuery] = React.useState("");
 
     //in the following span component make some landing page stuff
     //nothing too much, just a small intro
 
-
-
-
-
 return (
+  <>
 <div className="width">
 
 
-{user? <h2 style={{fontFamily:"Pacifico",color:"#757272",fontSize:"40px"}} align="center">{"Welcome, "+user.userName}</h2>:<span></span>}
+{!user?<div>
+  <img height="100px" src={plate}></img>
+  <Typography sx={{fontSize:"50px"}}> <b>Discover <span style={{color:"#ff003b"}}>food</span></b> that always fits your <b>mood</b>!
+  
+  </Typography>
 
+<Typography
+color="text.secondary"
+ sx={{fontSize:"20px"}}>
+Confused what to order? Not anymore!
+</Typography>
+<Typography
+color="text.secondary"
+ sx={{fontSize:"20px"}}>
+Find out the most popular food suggestions, recommend your favorite dishes and explore cuisine from all across the world. 🌎
+</Typography>
+
+
+
+</div>:<></>}
+
+
+
+{user?  <> 
+<center><img height="100"  src={hi}></img></center>
+
+<Typography align="center" style={{fontSize:"35px"}}>{"Welcome, "} <span style={{color:"#ff003b"}}>{user.userName}!</span>
+<Typography color="text.secondary"  >Discover and share all your favorite meals with savorite 😋</Typography>
+</Typography>
+</>
+:<span></span>}
+
+<br></br>
+<br></br>
 <center>
+{user?
+<Typography sx={{fontSize:"40px"}} variant="h2" align="left"> <span style={{color:"#ff003b"}}>Share</span> & Explore </Typography>:
+<Typography sx={{fontSize:"40px"}} variant="h2" align="left">Explore </Typography>
+}
+<hr></hr>
+
+</center>
+
+<br></br>
+<center>
+
     <Paper 
       component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' , maxWidth: 400 }}
+      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' , maxWidth: 700 }}
     >
       <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search by user, location, restaurants, tags..."
+        placeholder=" Search by user, location, restaurants, tags..."
         onChange={(e)=>{
           setQuery(e.target.value.toLowerCase());
         }}
@@ -64,10 +105,13 @@ return (
 
 <br></br>
 
+
+
+
 <br></br>
 {loading ? <>
 <center >
-      <CircularProgress />
+      <CircularProgress sx={{color:"#ff003b"}} />
 </center>
 
 </>:<Grid container spacing={2} align="center">
@@ -102,9 +146,9 @@ return (
   
 })}</Grid>}
 
-
 </div>
 
+ </>
 );
 }
 

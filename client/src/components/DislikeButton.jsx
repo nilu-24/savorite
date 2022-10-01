@@ -31,7 +31,7 @@ export default function DislikeButton(props){
     });
 
     const dislikeButton = props.user? (
-        disliked? (<> <IconButton onClick={dislikePost} sx={{color:"red"}}  aria-label="dislike">
+        disliked? (<> <IconButton onClick={dislikePost} sx={{color:"#ff003b"}}  aria-label="dislike">
         <ThumbDownIcon />
       </IconButton>
   <Typography variant="body2">{props.dislikeCount}</Typography>

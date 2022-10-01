@@ -84,21 +84,20 @@ const [submitComment] = useMutation(CREATE_COMMENT_MUTATION, {
     if (!getPost){
         postM =  <>
         <center >
-              <CircularProgress />
+              <CircularProgress sx={{color:"#ff003b"}} />
         </center>
         
         </>
     }
 
     else{
-
         //time to destructure
 
         const {_id, body, createdAt, userName, location, restaurant, tags, image, title, likes, dislikes,
         comments, likeCount, dislikeCount, commentCount} = getPost;
 
-
         postM = (
+          <>
 <div style={{margin:"5%"}}>
           <Grid container spacing={2} align="center">
 
@@ -169,14 +168,13 @@ const [submitComment] = useMutation(CREATE_COMMENT_MUTATION, {
         <CommentIcon   />
         </IconButton>Comments ({commentCount})</Typography>
 <br></br>
-          <Paper style={{maxHeight: 600, overflow: 'auto', margin:"20px", border:"1px solid #ff003b", boxShadow:"none"}}>
+          <Paper style={{maxHeight: 600, overflow: 'auto', margin:"20px", boxShadow:"none"}}>
       <CssBaseline />
       <List style={{maxHeight: '100%', overflow: 'auto'}}>
 
       {comments.length==0?<Typography variant="body2" align="center">No comments</Typography>:<></>}
 
         {comments.map((comment) => (
-
           <ListItem >
           <ListItemAvatar>
             <Avatar sx={{ bgcolor: "#F5F5F5", color:"black"}} aria-label="recipe">
@@ -218,7 +216,12 @@ console.log(comment)
  label = "Comment" placeholder="Share your thoughts..." fullWidth>
 </TextField>
 
-<Button sx={{marginTop:"20px"}} type = "submit" variant="contained" fullWidth>Create Comment</Button>
+<Button color="error" sx={{
+             '&:hover': {
+        backgroundColor: 'black',
+    },
+    
+  backgroundColor:"black", color:"white",marginTop:"20px"}} type = "submit" variant="contained" fullWidth>Create Comment</Button>
 </form>
 </>
 :<></>
@@ -288,13 +291,13 @@ Dislikes ({dislikeCount})</Typography>
       </List>
     </Paper>
     </Card>
-
           </Grid>
-
-
 
           </Grid>
           </div>
+
+</>
+
         )
 
 

@@ -30,7 +30,7 @@ export default function LikeButton(props){
     });
 
     const likeButton = props.user? (
-        liked? (<> <IconButton onClick={likePost} sx={{color:"red"}}  aria-label="like">
+        liked? (<> <IconButton onClick={likePost} sx={{color:"#ff003b"}}  aria-label="like">
         <ThumbUpIcon />
       </IconButton>
   <Typography variant="body2">{props.likeCount}</Typography>

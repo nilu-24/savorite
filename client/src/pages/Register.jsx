@@ -10,7 +10,7 @@ import CreateIcon from '@mui/icons-material/Create';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { AuthContext } from '../context/auth';
-import food from "../food.jpeg"
+
 
 
 export default function Register(props){
@@ -60,6 +60,15 @@ export default function Register(props){
     return (
         <div>
         <Navbar/>
+        <center>
+            <h1 style={{color:"#ff003b", fontFamily:"Pacifico", marginBottom:"1px"}}>Savorite.</h1>
+            <Typography variant="body2">Find all your favorite meals.</Typography>
+        </center>
+
+        <br></br>
+        <br></br>
+        <br></br>
+
 <Card sx={{maxWidth:400, margin:"0 auto"}}>
     <CardContent>
     <Typography align= "center" sx={{marginTop: "25px", marginBottom:"25px"}} gutterBottom variant="h6">
@@ -93,7 +102,13 @@ export default function Register(props){
         </Grid>
 
         <Grid item xs={12}>
-       <Button type = "submit" variant="contained" fullWidth>Register</Button>
+       <Button sx={{
+           
+           '&:hover': {
+        backgroundColor: 'black',
+    },
+    
+    backgroundColor:"black", color:"white"}} type = "submit" variant="contained" fullWidth>Register</Button>
         </Grid>
 
         </Grid>

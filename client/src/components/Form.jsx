@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 import { IconButton } from '@mui/material';
 import FileBase64 from 'react-file-base64';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-
+import food from "../food.jpeg";
 
 export default function Form(){
 
@@ -17,7 +17,7 @@ export default function Form(){
         restaurant:"",
         location:"",
         tags:[],
-        image:""
+        image:food
     });
 
     const onChange = (e)=>{
@@ -109,7 +109,6 @@ export default function Form(){
         
         <br></br>
 
-
         <FileBase64
         multiple={ false }
         onDone={ ({base64})=>{
@@ -119,7 +118,12 @@ export default function Form(){
 
 
         <Grid item xs={12}>
-       <Button type = "submit" variant="contained" fullWidth>Share</Button>
+       <Button sx={{
+                    '&:hover': {
+        backgroundColor: 'black',
+    },
+    
+         backgroundColor:"black", color:"white"}} type = "submit" variant="contained" fullWidth>Share</Button>
         </Grid>
 
         </Grid>

@@ -53,8 +53,18 @@ export default function Login(props){
     }
 
     return (
+        <>
         <div>
         <Navbar/>
+        <center>
+            <h1 style={{color:"#ff003b", fontFamily:"Pacifico", marginBottom:"1px"}}>Savorite.</h1>
+            <Typography variant="body2">Find all your favorite meals.</Typography>
+        </center>
+
+        <br></br>
+        <br></br>
+        <br></br>
+
 <Card sx={{maxWidth:400, margin:"0 auto"}}>
     <CardContent>
     <Typography align="center" sx={{marginTop: "25px", marginBottom:"25px"}} gutterBottom variant="h6">
@@ -78,7 +88,12 @@ export default function Login(props){
         </Grid>
 
         <Grid item xs={12}>
-       <Button type = "submit" variant="contained" fullWidth>Login</Button>
+       <Button  sx={{
+                      '&:hover': {
+        backgroundColor: 'black',
+    },
+    
+           backgroundColor:"black", color:"white"}} type = "submit" variant="contained" fullWidth>Login</Button>
         </Grid>
 
         </Grid>
@@ -99,7 +114,11 @@ export default function Login(props){
     
 </Card>
 
+
         </div>
+
+    
+        </>
     )
 
     }

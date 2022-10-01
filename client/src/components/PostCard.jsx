@@ -35,7 +35,7 @@ export default function PostCard(props) {
           </Avatar>
         }
         action={
-          <Link href={`/posts/${props._id}`}>
+          <Link href={`/posts/${props._id}` } target="_blank">
         <IconButton sx={{marginLeft:"20px"}} aria-label="comment">
         <LaunchIcon />
         </IconButton>
