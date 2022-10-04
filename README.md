@@ -4,6 +4,12 @@ Find out the most popular food suggestions, recommend your favorite dishes and e
 
  Website: https://savorite.netlify.app/
  
+ 
+ <img width="961" alt="Screenshot 2022-10-04 at 1 16 15 AM" src="https://user-images.githubusercontent.com/73608018/193740107-b31d2c1c-e79d-4aa6-ac25-0601107d0120.png">
+
+ 
+ 
+ 
  Demo:
 
 https://user-images.githubusercontent.com/73608018/193429152-22ec0ab8-66a7-4d54-aa01-dcc492423884.mp4
